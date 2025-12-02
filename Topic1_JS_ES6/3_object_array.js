@@ -33,6 +33,7 @@ console.log(listOfStudent);
 // Hoạt động trên mảng: listOfStudents. Xây dựng thành các hàm (tái sử dụng)
 // 1. Thêm mới 1 phần tử vào mảng và in ra
 const addItem = (newObject, list=[]) => list.push(newObject);
+
 const newStudent = {id: 4, name: "Bình Dương", age: 18};
 addItem(newStudent, listOfStudent);
 console.log("Danh sách SV sau khi thêm mới:");
