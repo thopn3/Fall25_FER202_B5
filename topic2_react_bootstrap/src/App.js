@@ -29,16 +29,30 @@ function App() {
         <div className='col-12'>Header</div>
       </div>
 
+      {/* Horizontal Menu */}
+      <div className='row'>
+        <div className='col-12 d-block d-md-none top-menu'>
+          <ul>
+            <li><a href='#'>Books</a></li>
+            <li><a href='#'>Authors</a></li>
+            <li><a href='#'>Publisher</a></li>
+          </ul>
+        </div>
+      </div>
+      
       {/* Content */}
       <div className='row'>
-        <div className='d-none d-sm-block col-sm-3 col-md-2'>
-          Menu
+        <div className='d-none d-md-block col-md-2'>
+          <ul>
+            <li><a href='#'>Books</a></li>
+            <li><a href='#'>Authors</a></li>
+            <li><a href='#'>Publisher</a></li>
+          </ul>
         </div>
-        <div className='col-12 col-sm-9 col-md-8'>
-          <h2>List of Books</h2>
-          {/* Đọc toàn bộ cuốn sách vào đặt tại table tại vị trí này */}
+        <div className='col-12 col-md-10'>
+          <h2>Create a new Book</h2>
+          
         </div>
-        <div className='d-none d-md-block col-md-2'>Right</div>
       </div>
 
       {/* Footer */}
