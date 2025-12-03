@@ -1,0 +1,12 @@
+.col-12, .col-sm-3, .col-md-2{
+  border: 1px solid gray;
+}
+
+.top-menu ul{
+  list-style: none;
+}
+
+.top-menu ul li{
+  display: inline-block;
+  margin-right: 20px;
+}
