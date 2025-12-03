@@ -52,8 +52,8 @@ function App() {
           </ul>
         </div>
         <div className='col-12 col-md-10'>
-          <CreateBook/>
-          <ListBook/>
+          <CreateBook action="Create a new Book" data={database}/>
+          <ListBook action="List of Books" data={database}/>
         </div>
       </div>
 

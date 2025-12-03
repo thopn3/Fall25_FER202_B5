@@ -1,25 +1,9 @@
-function CreateBook() {
-    const database = {
-    books: [
-      { bId: 1, title: 'Data Struct', aId: [1, 2], pId: 1 },
-      { bId: 2, title: 'Programming with C', aId: [2], pId: 1 },
-      { bId: 3, title: 'NodeJS app development', aId: [1, 2, 3], pId: 2 }
-    ],
-    authors: [
-      { auId: 1, name: "Hoàng Hải Nam" },
-      { auId: 2, name: "Ngô Thu Hồng" },
-      { auId: 3, name: "Phạm Minh Đức" }
-    ],
-    publishers: [
-      { pubId: 1, name: "NXB Giáo Dục" },
-      { pubId: 2, name: "NXB KH-CN" }
-    ]
-  }
-
-  const { books, authors, publishers } = database;
+function CreateBook({action, data}) {
+    
+  const { books, authors, publishers } = data;
     return (
         <form className='mb-3'>
-            <h2 className='text-center'>Create a new Book</h2>
+            <h2 className='text-center'>{action}</h2>
             <div className='mb-3'>
                 <label className='form-label'>BookId</label>
                 <input className='form-control' />

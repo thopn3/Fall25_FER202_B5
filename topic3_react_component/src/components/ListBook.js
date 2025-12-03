@@ -9,11 +9,14 @@ class ListBook extends Component {
     }
 
     render() {
+        const {action, data} = this.props;
+        const { books, authors, publishers } = data;
+
         return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12">
-                        <h3 className="text-center">List of Books</h3>
+                        <h3 className="text-center">{action}</h3>
                     </div>
                     <div className="col-12">
                         <table className="table table-hover table-striped table-bordered">
