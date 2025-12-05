@@ -1,5 +1,6 @@
 // Định nghĩa 1 class component
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ListBook extends Component {
     // Hàm khởi tạo -> Khởi tạo props (properties) và state cho component
@@ -9,8 +10,15 @@ class ListBook extends Component {
     }
 
     render() {
-        const {action, data} = this.props;
+        const { action, data } = this.props;
         const { books, authors, publishers } = data;
+
+        const result = books.map(({ bId, title, aId, pId }) => ({
+            bId: bId,
+            title: title,
+            authors: authors.filter(({ auId }) => aId.includes(auId)).map(({ name }) => name),
+            publisher: publishers.find(({ pubId }) => pubId === pId).name
+        }));
 
         return (
             <div className="container-fluid">
@@ -18,34 +26,37 @@ class ListBook extends Component {
                     <div className="col-12">
                         <h3 className="text-center">{action}</h3>
                     </div>
+                    <div className="col-12 text-end mt-3 mb-3" style={{border:"none"}}>
+                        <Link to={'/admin/books/add'} className="btn btn-primary">Create new Book</Link>
+                    </div>
                     <div className="col-12">
                         <table className="table table-hover table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Title</th>
-                                    <th>Year</th>
-                                    <th>Release Year</th>
                                     <th>Authors</th>
                                     <th>Publisher</th>
                                     <th colSpan={2}>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Data Struct</td>
-                                    <td>2024</td>
-                                    <td>2025</td>
-                                    <td>Hoàng Hải; Thu Hồng</td>
-                                    <td>NXB KH-CN</td>
-                                    <td>
-                                        <button className="btn btn-warning">Edit</button>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-danger">Delete</button>
-                                    </td>
-                                </tr>
+                                {
+                                    result?.map(b => (
+                                        <tr key={b?.bId}>
+                                            <td>{b?.bId}</td>
+                                            <td>{b?.title}</td>
+                                            <td>{b?.authors.join("; ")}</td>
+                                            <td>{b?.publisher}</td>
+                                            <td>
+                                                <button className="btn btn-warning">Edit</button>
+                                            </td>
+                                            <td>
+                                                <button className="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
                             </tbody>
                         </table>
                     </div>
